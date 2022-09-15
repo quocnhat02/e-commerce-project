@@ -9,10 +9,22 @@ const Button = styled.button`
   color: white;
 `;
 
+const Container = styled.div`
+  background: red;
+  color: white;
+  font-size: 2rem;
+`;
+
 function App() {
   return (
     <div>
-      <h4>comfy sloth starter</h4>;<Button>Click me</Button>
+      <h4>comfy sloth starter</h4>
+      <Button>Click me</Button>
+      <Container>
+        <div>
+          <h3>Hello World</h3>
+        </div>
+      </Container>
     </div>
   );
 }
