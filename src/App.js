@@ -12,7 +12,9 @@ const Button = styled.button`
 const Container = styled.div`
   background: red;
   color: white;
-  font-size: 2rem;
+  .hero {
+    font-size: 8rem;
+  }
 `;
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
         <div>
           <h3>Hello World</h3>
         </div>
+        <div className="hero">Hero text</div>
       </Container>
     </div>
   );
