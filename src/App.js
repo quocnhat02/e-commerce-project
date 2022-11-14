@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
-import Contact from './pages/contact/Contact';
-import Home from './pages/home/Home';
+// Pages
+import { Home, Contact } from './pages';
+// Components
+import { Footer, Header } from './components';
+// Routes
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
