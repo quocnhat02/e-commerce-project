@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaTimes } from 'react-icons/fa';
+import { HiMenuAlt3 } from 'react-icons/hi';
 
 const logo = (
   <div className={styles.logo}>
@@ -24,13 +25,40 @@ const cart = (
 );
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const hideMenu = () => {
+    setShowMenu(false);
+  };
+
   return (
     <header>
       <div className={styles.header}>
         {logo}
 
-        <nav>
-          <ul>
+        <nav
+          className={
+            showMenu ? `${styles['show-nav']}` : `${styles['hide-menu']}`
+          }
+        >
+          <div
+            className={
+              showMenu
+                ? `${styles['nav-wrapper']} ${styles['show-nav-wrapper']}`
+                : `${styles['nav-wrapper']}`
+            }
+            onClick={hideMenu}
+          ></div>
+
+          <ul onClick={hideMenu}>
+            <li className={styles['logo-mobile']}>
+              {logo}
+              <FaTimes size={22} color="#fff" onClick={hideMenu} />
+            </li>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -47,6 +75,11 @@ const Header = () => {
             {cart}
           </div>
         </nav>
+
+        <div className={styles['menu-icon']}>
+          {cart}
+          <HiMenuAlt3 size={28} onClick={toggleMenu} />
+        </div>
       </div>
     </header>
   );
